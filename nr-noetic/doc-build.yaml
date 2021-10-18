@@ -1,27 +1,17 @@
 %YAML 1.1
-# ROS buildfarm index file
+# ROS buildfarm doc-build file
 ---
-distributions:
-  nr-noetic:
-    doc_builds:
-      default: nr-noetic/doc-build.yaml
-      released-packages-without-doc-job: nr-noetic/doc-released-build.yaml
-    notification_emails:
-    - malte.kleine.piening@naturerobots.de
-    release_builds:
-      arm: nr-noetic/release-armhf-build.yaml
-      default: nr-noetic/release-build.yaml
-    source_builds:
-      default: nr-noetic/source-build.yaml
-doc_builds:
-  independent-packages: doc-independent-build.yaml
-jenkins_url: https://build.naturerobots.de
-notification_emails:
-- malte.kleine.piening@naturerobots.de
-prerequisites:
-  debian_repositories:
-  - http://repositories.naturerobots.de/ubuntu/building
-  debian_repository_keys:
+canonical_base_url: http://repositories.naturerobots.de/docs
+documentation_type: rosdoc_lite
+jenkins_job_priority: 89
+jenkins_job_timeout: 120
+notifications:
+  committers: false
+  emails:
+  - malte.kleine.piening@naturerobots.de
+  maintainers: false
+repositories:
+  keys:
   - |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -64,11 +54,16 @@ prerequisites:
     o+ZOl6GsaYhc7RrOMwmr3Q==
     =O3oc
     -----END PGP PUBLIC KEY BLOCK-----
-rosdistro_index_url: https://raw.githubusercontent.com/naturerobots/rosdistro/master/index.yaml
-status_page_repositories:
-  default:
-  - http://repositories.naturerobots.de/ubuntu/building
+  urls:
   - http://repositories.naturerobots.de/ubuntu/testing
-  - http://repositories.naturerobots.de/ubuntu/main
-type: buildfarm
-version: 1
+targets:
+  ubuntu:
+    focal:
+      amd64:
+type: doc-build
+upload_credential_id: 1e7d4696-7fd4-4bc6-8c87-ebc7b6ce16e5
+upload_host: repositories.naturerobots.de
+upload_root: /var/www/repositories/docs
+# The `upload_user` defaults from source and can be tuned as needed.
+# upload_user: jenkins-agent
+version: 2

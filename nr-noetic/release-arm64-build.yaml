@@ -1,27 +1,23 @@
 %YAML 1.1
-# ROS buildfarm index file
+# ROS buildfarm release-build file
 ---
-distributions:
-  nr-noetic:
-    doc_builds:
-      default: nr-noetic/doc-build.yaml
-      released-packages-without-doc-job: nr-noetic/doc-released-build.yaml
-    notification_emails:
-    - malte.kleine.piening@naturerobots.de
-    release_builds:
-      arm: nr-noetic/release-armhf-build.yaml
-      default: nr-noetic/release-build.yaml
-    source_builds:
-      default: nr-noetic/source-build.yaml
-doc_builds:
-  independent-packages: doc-independent-build.yaml
-jenkins_url: https://build.naturerobots.de
-notification_emails:
-- malte.kleine.piening@naturerobots.de
-prerequisites:
-  debian_repositories:
-  - http://repositories.naturerobots.de/ubuntu/building
-  debian_repository_keys:
+bi_incompatibility_assumed: true
+build_environment_variables:
+  ROS_PYTHON_VERSION: '3'
+jenkins_binary_job_label: buildagent_arm64 || noetic_binarydeb_ufv8
+jenkins_binary_job_priority: 94
+jenkins_binary_job_timeout: 720
+jenkins_source_job_priority: 64
+jenkins_source_job_timeout: 30
+notifications:
+  emails:
+  - ros-buildfarm-testfarm@googlegroups.com
+  maintainers: false
+package_blacklist:
+sync:
+  package_count: 1
+repositories:
+  keys:
   - |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
 
@@ -64,11 +60,16 @@ prerequisites:
     o+ZOl6GsaYhc7RrOMwmr3Q==
     =O3oc
     -----END PGP PUBLIC KEY BLOCK-----
-rosdistro_index_url: https://raw.githubusercontent.com/naturerobots/rosdistro/master/index.yaml
-status_page_repositories:
-  default:
+  urls:
   - http://repositories.naturerobots.de/ubuntu/building
-  - http://repositories.naturerobots.de/ubuntu/testing
-  - http://repositories.naturerobots.de/ubuntu/main
-type: buildfarm
-version: 1
+target_repository: http://repositories.naturerobots.de/ubuntu/building
+targets:
+  ubuntu:
+    focal:
+      arm64:
+  debian:
+    jessie:
+      arm64:
+type: release-build
+upload_credential_id: 1e7d4696-7fd4-4bc6-8c87-ebc7b6ce16e5
+version: 2
