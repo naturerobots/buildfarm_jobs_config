@@ -17,6 +17,7 @@ doc_builds:
   independent-packages: doc-independent-build.yaml
 jenkins_url: https://build.naturerobots.de
 notification_emails:
+- malte.kleine.piening@naturerobots.de
 prerequisites:
   debian_repositories:
   - http://repositories.naturerobots.de/ubuntu/building
