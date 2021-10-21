@@ -14,7 +14,6 @@ jenkins_job_priority: 90
 jenkins_job_timeout: 30
 notifications:
   emails:
-  - ros-buildfarm-testfarm@googlegroups.com
 targets:
   ubuntu:
     trusty:

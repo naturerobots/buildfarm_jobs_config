@@ -8,7 +8,6 @@ jenkins_job_timeout: 120
 notifications:
   committers: false
   emails:
-  - malte.kleine.piening@naturerobots.de
   maintainers: false
 repositories:
   keys:

@@ -11,7 +11,6 @@ jenkins_source_job_priority: 64
 jenkins_source_job_timeout: 30
 notifications:
   emails:
-  - ros-buildfarm-testfarm@googlegroups.com
   maintainers: false
 package_blacklist:
 sync:

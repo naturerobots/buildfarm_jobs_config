@@ -6,7 +6,6 @@ jenkins_job_priority: 89
 jenkins_job_timeout: 30
 notifications:
   emails:
-  - malte.kleine.piening@naturerobots.de
 targets:
   ubuntu:
     focal:
