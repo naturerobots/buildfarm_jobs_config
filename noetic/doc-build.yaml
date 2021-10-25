@@ -1,21 +1,15 @@
 %YAML 1.1
-# ROS buildfarm release-build file
+# ROS buildfarm doc-build file
 ---
-bi_incompatibility_assumed: true
-build_environment_variables:
-  ROS_PYTHON_VERSION: '3'
-jenkins_binary_job_label: buildagent_arm64 || noetic_binarydeb_ufv8
-jenkins_binary_job_priority: 94
-jenkins_binary_job_timeout: 720
-jenkins_source_job_priority: 64
-jenkins_source_job_timeout: 30
+canonical_base_url: http://repositories.naturerobots.de/docs
+documentation_type: rosdoc_lite
+jenkins_job_priority: 89
+jenkins_job_timeout: 120
 notifications:
+  committers: false
   emails:
-  - ros-buildfarm-testfarm@googlegroups.com
+  - malte.kleine.piening@naturerobots.de
   maintainers: false
-package_blacklist:
-sync:
-  package_count: 1
 repositories:
   keys:
   - |
@@ -61,12 +55,15 @@ repositories:
     =CCbE
     -----END PGP PUBLIC KEY BLOCK-----
   urls:
-  - http://repositories.naturerobots.de/ubuntu/building
-target_repository: http://repositories.naturerobots.de/ubuntu/building
+  - http://repositories.naturerobots.de/ubuntu/testing
 targets:
   ubuntu:
     focal:
-      arm64:
-type: release-build
+      amd64:
+type: doc-build
 upload_credential_id: 1e7d4696-7fd4-4bc6-8c87-ebc7b6ce16e5
+upload_host: repositories.naturerobots.de
+upload_root: /var/repos/docs
+# The `upload_user` defaults from source and can be tuned as needed.
+# upload_user: jenkins-agent
 version: 2
