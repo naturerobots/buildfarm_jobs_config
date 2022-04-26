@@ -12,6 +12,8 @@ doc_repositories:
 - https://github.com/vcstools/vcstools.git
 jenkins_job_priority: 90
 jenkins_job_timeout: 30
+install_apt_packages:
+- sphinx-common
 notifications:
   emails:
   - malte.kleine.piening@naturerobots.de
